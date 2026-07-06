@@ -90,7 +90,8 @@
       ]
 
       #handout-note[
-          The `#slide[ ]` function can be omitted, as far as I can tell. The only consequence will be that the handout won't have the box designating the slide. If you don't want to produce the handout, then feel free to omit `#slide[ ]`.
+
+          The handout places a line underneath the displayed slide content. The speaker notes appear under the line.
 
 
       ]
