@@ -6,7 +6,6 @@
   project,
   live-title-slide,
   live-pause,
-  live-slide,
   live-speaker-note,
   live-handout-note,
   live-two-column-slide,
@@ -19,7 +18,6 @@
 #content(
   live-title-slide,
   live-pause,
-  live-slide,
   live-speaker-note,
   live-handout-note,
   live-two-column-slide,

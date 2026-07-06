@@ -2,11 +2,15 @@
 // Slide content for Sample Presentation, written once as a function of its building
 // blocks so it can render either as live Touying slides (*-slides.typ) or
 // as a flowing handout (*-handout.typ).
+//
+// Plain content under a heading needs no wrapper; only speaker-note/
+// handout-note (which must differ between the live deck and the
+// handout) and the two special layouts (two-column-slide, full-slide)
+// are explicit calls.
 
 #let content(
     title-slide,
     pause,
-    slide,
     speaker-note,
     handout-note,
     two-column-slide,
@@ -25,12 +29,12 @@
 
     === Files
 
-    #slide[
-        + config.typ
-        + content.typ
-        + slides.typ
-        + handout.typ
-    ]
+
+    + config.typ
+    + content.typ
+    + slides.typ
+    + handout.typ
+
 
     #speaker-note[
         - config.typ contains all configuration information.
@@ -52,12 +56,12 @@
 
     === Heading Structure
 
-    #slide[
-        - Structure includes
-            - Slides
-            - Sections
-            - Subsections (optional)
-    ]
+
+    - Structure includes
+        - Slides
+        - Sections
+        - Subsections (optional)
+
 
     #speaker-note[
         - All presentations have sections and slides
@@ -75,21 +79,21 @@
 
     === Slide Content
 
-    #slide[
-        - Slide content in `#slide[ ]`
-        - Speaker notes in `#speaker-note[ ]`
-    ]
 
-    #speaker-note[
-        - Wrapping the content in the `#slide[ ]` function is required for printing the frame around the slide in the handout.
-        - Standard Typst syntax used.
-    ]
-
-    #handout-note[
-        The `#slide[ ]` function can be omitted, as far as I can tell. The only consequence will be that the handout won't have the box designating the slide. If you don't want to produce the handout, then feel free to omit `#slide[ ]`.
+    - Anything not contained in a `note[]` wrapper becomes slide content.
+    - Speaker notes in `#speaker-note[ ]`
 
 
-    ]
+      #speaker-note[
+          
+          - Standard Typst syntax used.
+      ]
+
+      #handout-note[
+          The `#slide[ ]` function can be omitted, as far as I can tell. The only consequence will be that the handout won't have the box designating the slide. If you don't want to produce the handout, then feel free to omit `#slide[ ]`.
+
+
+      ]
 
     = Special Slides
 
@@ -98,10 +102,10 @@
 
     === Gradual Reveal
 
-    #slide[
-        - Use `#pause` to hide content. #pause
-        - Which is then revealed by paging forward.
-    ]
+
+    - Use `#pause` to hide content. #pause
+    - Which is then revealed by paging forward.
+
 
     #speaker-note[
         - Use `#pause` to gradually reveal content.
@@ -143,7 +147,7 @@
     ]
 
     #handout-note[
-
+        This is Raphael's "School of Athens" displayed as a full-frame image.
     ]
 
     === Full-Frame Text
@@ -194,10 +198,8 @@
     ]
 
     #handout-note[
-        Making slides with Typst is much easier than making Beamer slides with LaTeX. The Typst syntax is very similar to a lightweight markup language like Markdown. Beamer has a signifanct advantage for Emacs users, however. Beamer export in Emacs Org mode is excellent. So, although I can replicate my Beamer workflow fairly well, I don't know if it's worth moving to Typst for presentations.
+        Making slides with Typst is much easier than making Beamer slides with LaTeX. The Typst syntax is very similar to a lightweight markup language like Markdown. Beamer has a signifanct advantage for Emacs users, however. Beamer export in Emacs Org mode is excellent. Typst can be used with Org mode with the Ox-Typst package. The next task will be to try to write the content file in Org Mode and export to typst.typ.
 
-        I'm considering removing the boxes surrounding the slides. That way I could dispense with the `#slide' wrapper.`
     ]
 
 ]
-

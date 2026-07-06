@@ -8,7 +8,6 @@
   handout-project,
   handout-title-slide,
   handout-pause,
-  handout-slide,
   handout-speaker-note,
   handout-note,
   handout-two-column-slide,
@@ -21,7 +20,6 @@
 #content(
   handout-title-slide,
   handout-pause,
-  handout-slide,
   handout-speaker-note,
   handout-note,
   handout-two-column-slide,
